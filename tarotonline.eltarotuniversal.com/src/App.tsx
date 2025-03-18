@@ -23,8 +23,30 @@ function App() {
     setShowChat(true);
   };
 
-  const handleCallRequest = () => {
-    console.log('Llamada solicitada');
+  const handleCallRequest = async () => {
+    console.log('Llamada solicitada aaaaaaaaaaa',userData);
+    const backendURL = `http://localhost:3001/api/transito?phone=${userData?.phone}`;
+
+    try {
+      const response = await fetch(backendURL, {
+        method: 'POST', // Usamos GET ya que el endpoint en Express es GET.
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      if (!response.ok) {
+        throw new Error('Error en la solicitud al servidor');
+      }
+  
+      const data = await response.json();
+      console.log('Respuesta del servidor:', data);
+      // Aquí puedes actualizar el estado o realizar otras acciones según la respuesta.
+    } catch (error) {
+      console.error('Error al hacer la solicitud:', error);
+    }
+    
+
   };
 
   return (
