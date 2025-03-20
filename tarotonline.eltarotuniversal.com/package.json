@@ -4,18 +4,22 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev:client": "vite",
+    "dev:server": "nodemon",
+    "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start:server": "node server.js"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.39.7",
+    "framer-motion": "^11.0.8",
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "framer-motion": "^11.0.8",
     "react-hook-form": "^7.51.0",
-    "@supabase/supabase-js": "^2.39.7"
+    "tarotoo-landing": "file:"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",

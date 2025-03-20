@@ -1,0 +1,6 @@
+{
+    "script": "server.js",
+    "ignore": ["eslint.config.js", "node_modules/*"],
+    "watch": ["server.js"],
+    "ext": "js,json"
+}
